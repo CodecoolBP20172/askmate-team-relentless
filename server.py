@@ -36,7 +36,7 @@ def show_question():
 def new_answer():
     # append answer.csv with new answer
     # redirect to question id
-    
+
 """
 
 if __name__ == "__main__":
