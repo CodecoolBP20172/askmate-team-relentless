@@ -18,9 +18,9 @@ def read_questions(file_name="question.csv"):
     with open(file_name, newline="") as data_file:
         datareader = csv.reader(data_file, delimiter=",", quotechar="|")
         for row in datareader:
-            row[3] = base64_to_string(row[3])
-            row[4] = base64_to_string(row[4])
-            row[5] = base64_to_string(row[5])
+            # row[3] = base64_to_string(row[3])
+            # row[4] = base64_to_string(row[4])
+            # row[5] = base64_to_string(row[5])
             data.append(row)
     return data
 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+  <title>AskMate</title>
+<body>
+    <h1>AskMate</h1>
+    <form action="/new_question" method="post">
+        <input type="submit" value="Ask new Question" id="add" name="add"></form>
+    <table border="1">
+        <tr>
+            {% for column in data[0] %}
+            <th> {{ column }} </th>
+            {% endfor %}
+        </tr>          
+            {% for row in range(1, data|length) %}
+        <tr>   
+            {% for cell in data[row] %}
+            <td>{{ cell }}</td>     
+            {% endfor %}
+        </tr>
+            {% endfor %}
+        </table>
+</body>
+</html>

@@ -5,15 +5,17 @@ import actions
 app = Flask(__name__)
 
 
-@app.route("/", methods=["GET"])
+@app.route('/', methods=['GET'])
 def show_list():
-    # actoins.show_questions()
+    data = csv_handling.read_questions('question.csv')
+    return render_template('list.html', data=data)
+    # actions.show_questions()
     # beolvassa a csv-t
     # megjeleníti a táblázatot
     # legújabb elöl
     # ha request method POST, akkor return new-question.html
 
-
+"""
 @app.route("/new_question", methods=["GET", "POST"])
 def add_new_question():
     # render.template new_question.html
@@ -34,6 +36,8 @@ def show_question():
 def new_answer():
     # append answer.csv with new answer
     # redirect to question id
+    
+"""
 
 if __name__ == "__main__":
     app.run(
