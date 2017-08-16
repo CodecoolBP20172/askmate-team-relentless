@@ -39,11 +39,10 @@ def read_answers(file_name="answer.csv"):
 def append_question(new_question, file_name="question.csv"):
     with open(file_name, "a", newline="") as data_file:
         datawriter = csv.writer(data_file, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL)
-        new_question[3] = string_to_base64(new_question[3])
-        new_question[4] = string_to_base64(new_question[4])
-        new_question[5] = string_to_base64(new_question[5])
+        new_question[4] = 'questiontitle'
+        new_question[5] = 'questionmessage'
         datawriter.writerow(new_question)
-    questions = read_data("question.csv")
+    questions = read_questions("question.csv")
     return questions
 
 
@@ -53,7 +52,7 @@ def append_answer(new_answer, file_name="answer.csv"):
         new_answer[4] = string_to_base64(new_answer[4])
         new_answer[5] = string_to_base64(new_answer[5])
         datawriter.writerow(new_answer)
-    answers = read_data("answer.csv")
+    answers = read_answers("answer.csv")
     return answers
 
 

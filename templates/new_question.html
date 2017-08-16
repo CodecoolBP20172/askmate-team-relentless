@@ -6,11 +6,11 @@
     </head>
     <body>
         <h1>Ask new question</h1>
-        <form action="/new_question" method="post">
+        <form action="/save_question" method="post">
             <p>Title</p>
-            <textarea name="title" rows="1" cols="60"></textarea><br>
+            <textarea id="title" rows="1" cols="60"></textarea><br>
             <p>Description</p>
-            <textarea name="description" rows="10" cols="60" minlength="10"></textarea><br>
+            <textarea id="message" rows="10" cols="60" minlength="10"></textarea><br>
             <button type="submit">Save question</button>
         </form>
     </body>
