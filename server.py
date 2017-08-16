@@ -13,7 +13,7 @@ def show_list():
 
 @app.route("/new_question", methods=["GET", "POST"])
 def new_question_form():
-    return render_template('new_question.html', title=title, message=message)
+    return render_template('new_question.html')
 
 
 @app.route('/save_question', methods=['POST'])
