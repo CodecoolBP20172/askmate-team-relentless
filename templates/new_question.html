@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ask new question</title>
+    </head>
+    <body>
+        <h1>Ask new question</h1>
+        <form action="/new_question" method="post">
+            <p>Title</p>
+            <textarea name="title" rows="1" cols="60"></textarea><br>
+            <p>Description</p>
+            <textarea name="description" rows="10" cols="60" minlength="10"></textarea><br>
+            <button type="submit">Save question</button>
+        </form>
+    </body>
+</html>
