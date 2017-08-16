@@ -15,15 +15,23 @@ def show_list():
     # legújabb elöl
     # ha request method POST, akkor return new-question.html
 
-"""
+
 @app.route("/new_question", methods=["GET", "POST"])
 def add_new_question():
-    # render.template new_question.html
+    render_template('new_question.html')
+    question = ['', '', '', '', '', '', '']
+    question['title'] = request.form['title']
+    question['message'] = request.form['message']
+    return redirect('/')
+    if request.method == "POST":
+        return add_new_story()  # ha új story-t akarunk, megyünk a story page-re
+    else:
+        return render_template('list.html', stories=stories, title='Super Sprinter 3000')
     # get-render nq.html
     # post-új id, kiszedni a request.form-ból az adatokat és redirectelünk oda
     # return show_list
 
-
+"""
 @app.route("/question/<id>", methods=["GET"])
 def show_question():
     # megjeleníti a questiont kiírja a válaszokat
@@ -36,7 +44,7 @@ def show_question():
 def new_answer():
     # append answer.csv with new answer
     # redirect to question id
-    
+
 """
 
 if __name__ == "__main__":
