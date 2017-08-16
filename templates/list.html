@@ -3,9 +3,10 @@
   <title>AskMate</title>
 <body>
     <h1>AskMate</h1>
-    <form action="/new_question" method="post">
-        <input type="submit" value="Ask new Question" id="add" name="add"></form>
-    <table border="1">        
+    <table border="1">
+            <th>ID</th>
+            <th>Question</th>
+            <th><a href="/new_question">Ask a Question</form></th>      
             {% for cell in data %}
         <tr>
             <td>{{ cell[0] }}</td> 
