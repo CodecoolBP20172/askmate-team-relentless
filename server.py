@@ -9,24 +9,21 @@ app = Flask(__name__)
 def show_list():
     data = csv_handling.read_questions('question.csv')
     return render_template('list.html', data=data)
-    # actions.show_questions()
-    # beolvassa a csv-t
-    # megjeleníti a táblázatot
-    # legújabb elöl
-    # ha request method POST, akkor return new-question.html
 
 
 @app.route("/new_question", methods=["GET", "POST"])
-def add_new_question():
-    render_template('new_question.html')
-    question = ['', '', '', '', '', '', '']
-    question['title'] = request.form['title']
-    question['message'] = request.form['message']
+def new_question_form():
+    return render_template('new_question.html')
+
+
+@app.route('/save_question', methods=['POST'])
+def route_save():
+    print('Question request received!')
+    print(request.form['title'])
+    print(request.form['message'])
+    print(question)
+    csv_handling.append_question(question)
     return redirect('/')
-    if request.method == "POST":
-        return add_new_story()  # ha új story-t akarunk, megyünk a story page-re
-    else:
-        return render_template('list.html', stories=stories, title='Super Sprinter 3000')
     # get-render nq.html
     # post-új id, kiszedni a request.form-ból az adatokat és redirectelünk oda
     # return show_list
