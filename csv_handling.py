@@ -39,8 +39,6 @@ def read_answers(file_name="answer.csv"):
 def append_question(new_question, file_name="question.csv"):
     with open(file_name, "a", newline="") as data_file:
         datawriter = csv.writer(data_file, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL)
-        new_question[4] = 'questiontitle'
-        new_question[5] = 'questionmessage'
         datawriter.writerow(new_question)
     questions = read_questions("question.csv")
     return questions
