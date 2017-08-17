@@ -42,13 +42,19 @@ def show_question(id):
             answer.append(row)
     return render_template('question.html', id=id, question=question, answer=answer)
 
-"""
+'''
 @app.route("/questions/<id>/new_answer", method=["POST"])
-def new_answer():
-    # append answer.csv with new answer
-    # redirect to question id
+def new_answer(id):
+    data = csv_handling.read_answers('answer.csv')
+    print('Answer request received!')
+    answer = ['', '', '', '', '', '']
+    answer[0] = actions.new_id('answer.csv')
+    answer[1] = actions.unixtime()
+    answer[3] = id
+    answer[4] = request.form['message']
+    csv_handling.append_answer(answer)
+    return redirect("/question/<id>")'''
 
-"""
 
 if __name__ == "__main__":
     app.run(
