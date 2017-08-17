@@ -21,6 +21,7 @@ def route_save():
     data = csv_handling.read_questions('question.csv')
     print('Question request received!')
     question = ['', '', '', '', '', '', '']
+    question[0] = actions.new_id('question.csv')
     question[4] = request.form['title']
     question[5] = request.form['message']
     csv_handling.append_question(question)
