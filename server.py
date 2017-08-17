@@ -42,8 +42,8 @@ def show_question(id):
             answer.append(row)
     return render_template('question.html', id=id, question=question, answer=answer)
 
-'''
-@app.route("/questions/<id>/new_answer", method=["POST"])
+
+@app.route("/questions/<id>/new_answer", methods=["POST"])
 def new_answer(id):
     data = csv_handling.read_answers('answer.csv')
     print('Answer request received!')
@@ -53,7 +53,7 @@ def new_answer(id):
     answer[3] = id
     answer[4] = request.form['message']
     csv_handling.append_answer(answer)
-    return redirect("/question/<id>")'''
+    return redirect("/question/<id>")
 
 
 if __name__ == "__main__":
