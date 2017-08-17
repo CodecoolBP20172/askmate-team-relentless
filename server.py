@@ -33,12 +33,12 @@ def route_save():
 
 
 @app.route("/question/<id>", methods=["GET"])
-def show_question():
-    render_template("question.html")
-    # megjeleníti a questiont kiírja a válaszokat
-    # a form actionje a new_answer
-    # ha POST a request method, akkor return new_answer, máskülönben render template question.html
-    # show answers.csv
+def show_question(id):
+    data = csv_handling.read_questions('question.csv')
+    for row in data:
+        if row[0] == id:
+            question = row
+    return render_template('question.html', question=question, id=id)
 
 """
 @app.route("/questions/<id>/new_answer", method=["POST"])
