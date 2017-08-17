@@ -5,11 +5,13 @@
     <h1>AskMate</h1>
     <table border="1">
             <th>ID</th>
+            <th>Timestamp</th>
             <th>Question</th>
             <th><a href="/new_question">Ask a Question</form></th>      
             {% for cell in data %}
         <tr>
-            <td>{{ cell[0] }}</td> 
+            <td>{{ cell[0] }}</td>
+            <td>{{ cell[1] }}</td>
             <td>{{ cell[4] }}</td>
             <td><a href="/question/{{cell[0]}}">See Answers</td>
         </tr>
