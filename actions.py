@@ -1,4 +1,5 @@
 import csv
+import time
 
 '''
 def get_question_list
@@ -15,3 +16,8 @@ def new_id(csv_filename):
             return 1
         else:
             return int(lastrow[0]) + 1
+
+
+def unixtime():
+    timestamp = int(time.time())
+    return timestamp
