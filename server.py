@@ -53,7 +53,7 @@ def new_answer(id):
     answer[3] = id
     answer[4] = request.form['message']
     csv_handling.append_answer(answer)
-    return redirect("/question/<id>")
+    return redirect("/question/"+str(id))
 
 
 if __name__ == "__main__":
