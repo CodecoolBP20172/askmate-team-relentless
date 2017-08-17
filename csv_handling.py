@@ -17,11 +17,15 @@ def read_questions(file_name="question.csv"):
     data = []
     with open(file_name, newline="") as data_file:
         datareader = csv.reader(data_file, delimiter=",", quotechar="|")
-        for row in datareader:
-            # row[3] = base64_to_string(row[3])
-            # row[4] = base64_to_string(row[4])
-            # row[5] = base64_to_string(row[5])
-            data.append(row)
+        try:  # ha az inputot base64-esítettük, akkor erre nem lesz szükség
+            for row in datareader:
+                row[4] = base64_to_string(row[4])
+                row[5] = base64_to_string(row[5])
+                row[6] = base64_to_string(row[6])
+                data.append(row)
+        except:
+            for row in datareader:
+                data.append(row)
     return data
 
 
@@ -29,16 +33,24 @@ def read_answers(file_name="answer.csv"):
     data = []
     with open(file_name, newline="") as data_file:
         datareader = csv.reader(data_file, delimiter=",", quotechar="|")
-        for row in datareader:
-            row[4] = base64_to_string(row[4])
-            row[5] = base64_to_string(row[5])
-            data.append(row)
+        try:  # ha az inputot base64-esítettük, akkor erre nem lesz szükség
+            for row in datareader:
+                row[4] = base64_to_string(row[4])
+                row[5] = base64_to_string(row[5])
+                data.append(row)
+        except:
+            for row in datareader:
+                data.append(row)
     return data
 
 
 def append_question(new_question, file_name="question.csv"):
     with open(file_name, "a", newline="") as data_file:
         datawriter = csv.writer(data_file, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL)
+        '''for row in datawriter: -----not iterable
+            new_answer[4] = string_to_base64(new_answer[4])
+            new_answer[5] = string_to_base64(new_answer[5])
+            new_answer[6] = string_to_base64(new_answer[6])'''
         datawriter.writerow(new_question)
     questions = read_questions("question.csv")
     return questions
@@ -47,8 +59,9 @@ def append_question(new_question, file_name="question.csv"):
 def append_answer(new_answer, file_name="answer.csv"):
     with open(file_name, "a", newline="") as data_file:
         datawriter = csv.writer(data_file, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL)
-        new_answer[4] = string_to_base64(new_answer[4])
-        new_answer[5] = string_to_base64(new_answer[5])
+        '''for row in datawriter: -----not iterable
+            new_answer[4] = string_to_base64(new_answer[4])
+            new_answer[5] = string_to_base64(new_answer[5])'''
         datawriter.writerow(new_answer)
     answers = read_answers("answer.csv")
     return answers

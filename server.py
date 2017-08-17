@@ -27,18 +27,20 @@ def route_save():
     question[5] = request.form['message']
     csv_handling.append_question(question)
     return redirect('/')
-    # get-render nq.html
-    # post-új id, kiszedni a request.form-ból az adatokat és redirectelünk oda
-    # return show_list
 
 
 @app.route("/question/<id>", methods=["GET"])
 def show_question(id):
-    data = csv_handling.read_questions('question.csv')
-    for row in data:
+    questions = csv_handling.read_questions('question.csv')
+    answers = csv_handling.read_answers('answer.csv')
+    for row in questions:
         if row[0] == id:
             question = row
-    return render_template('question.html', question=question, id=id)
+    answer = []
+    for row in answers:
+        if row[3] == id:
+            answer.append(row)
+    return render_template('question.html', id=id, question=question, answer=answer)
 
 """
 @app.route("/questions/<id>/new_answer", method=["POST"])
