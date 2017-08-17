@@ -12,8 +12,15 @@
             <th>Answers:</th>
         </tr>
             {% for i in answer %}
-        <tr><td>{{ i[4] }}</td></tr>
+        <tr>
+            <td>{{ i[4] }}</td>
+        </tr>
             {% endfor %}
-        </table>
+    </table>
+    <form id="form" action="/questions/<id>/new_answer" method="post">
+        <p>New Answer</p>
+        <textarea name="message" rows="10" cols="60" minlength="10"></textarea><br>
+        <button type="submit">Save answer</button>
+    </form>
 </body>
 </html>
