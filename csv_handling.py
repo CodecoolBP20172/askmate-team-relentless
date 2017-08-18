@@ -16,7 +16,7 @@ def string_to_base64(origin):
 def read_questions(file_name="question.csv"):
     data = []
     with open(file_name, newline="") as data_file:
-        datareader = csv.reader(data_file, delimiter=",", quotechar="|")
+        datareader = csv.reader(data_file, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL)
         for row in datareader:
                 data.append(row)
     return data
@@ -25,7 +25,7 @@ def read_questions(file_name="question.csv"):
 def read_answers(file_name="answer.csv"):
     data = []
     with open(file_name, newline="") as data_file:
-        datareader = csv.reader(data_file, delimiter=",", quotechar="|")
+        datareader = csv.reader(data_file, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL)
         for row in datareader:
                 data.append(row)
     return data
@@ -45,20 +45,3 @@ def append_answer(new_answer, file_name="answer.csv"):
         datawriter.writerow(new_answer)
     answers = read_answers("answer.csv")
     return answers
-
-
-# def print_info(variable):
-#     print("Original string: {var} ({type})".format(**{
-#         "var": variable,
-#         "type": type(variable)
-#     }))
-
-# original_string = "Test string"
-# encoded_string = string_to_base64(original_string)
-# decoded_string = base64_to_string(encoded_string)
-
-
-# # Check if we have strings in all variables
-# print_info(original_string)
-# print_info(encoded_string)
-# print_info(decoded_string)

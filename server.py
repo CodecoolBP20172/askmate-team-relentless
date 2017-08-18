@@ -19,7 +19,6 @@ def new_question_form():
 @app.route('/save_question', methods=['POST'])
 def route_save():
     data = csv_handling.read_questions('question.csv')
-    print('Question request received!')
     question = ['', '', '', '', '', '', '']
     question[0] = actions.new_id('question.csv')
     question[1] = actions.unixtime()
@@ -46,7 +45,6 @@ def show_question(id):
 @app.route("/questions/<id>/new_answer", methods=["POST"])
 def new_answer(id):
     data = csv_handling.read_answers('answer.csv')
-    print('Answer request received!')
     answer = ['', '', '', '', '', '']
     answer[0] = actions.new_id('answer.csv')
     answer[1] = actions.unixtime()

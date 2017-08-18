@@ -1,11 +1,6 @@
 import csv
 import time
 
-'''
-def get_question_list
-    # sortolva a timestamp alapján
-'''
-
 
 def new_id(csv_filename):
     with open(csv_filename, "r") as csv_file:

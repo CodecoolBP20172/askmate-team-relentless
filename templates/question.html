@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <head>
   <title>AskMate</title>
-<body>
-    <h1>AskMate</h1>
-    <h2><a href="/">Home<a></h2><br>
-    <table border="1" width="600" class="table">
-            <th>{{ question[4] }}</th>     
-        <tr>
-            <td>{{ question[5] }}</td>
-        </tr>
-        <tr>
-            <th>Answers:</th>
-        </tr>
-            {% for i in answer %}
-        <tr>
-            <td>{{ i[4] }}</td>
-        </tr>
-            {% endfor %}
-    </table>
-    <form id="form" action="/questions/{{ question[0 ] }}/new_answer" method="post">
-        <p>New Answer</p>
-        <textarea name="message" rows="10" cols="60" minlength="10"></textarea><br>
-        <button type="submit">Save answer</button>
-    </form>
-</body>
+    <body>
+        <h1>AskMate</h1>
+        <h2><a href="/">Home<a></h2><br>
+        <table border="1" width="600" class="table">
+                <th>{{ question[4] }}</th>     
+            <tr>
+                <td>{{ question[5] }}</td>
+            </tr>
+            <tr>
+                <th>Answers:</th>
+            </tr>
+                {% for i in answer %}
+            <tr>
+                <td>{{ i[4] }}</td>
+            </tr>
+                {% endfor %}
+        </table>
+        <form id="form" action="/questions/{{ question[0 ] }}/new_answer" method="post">
+            <p>New Answer</p>
+            <textarea name="message" rows="10" cols="60" minlength="10"></textarea><br>
+            <button type="submit">Save answer</button>
+        </form>
+    </body>
 </html>
