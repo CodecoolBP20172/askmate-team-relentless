@@ -19,38 +19,23 @@ def new_question_form():
 @app.route('/save_question', methods=['POST'])
 def route_save():
     data = csv_handling.read_questions('question.csv')
-    question = ['', '', '', '', '', '', '']
-    question[0] = actions.new_id('question.csv')
-    question[1] = actions.unixtime()
-    question[4] = request.form['title']
-    question[5] = request.form['message']
-    csv_handling.append_question(question)
+    new_question = actions.create_question_list()
+    csv_handling.append_question(new_question)
     return redirect('/')
 
 
 @app.route("/question/<id>", methods=["GET"])
 def show_question(id):
-    questions = csv_handling.read_questions('question.csv')
-    answers = csv_handling.read_answers('answer.csv')
-    for row in questions:
-        if row[0] == id:
-            question = row
-    answer = []
-    for row in answers:
-        if row[3] == id:
-            answer.append(row)
+    question = actions.find_question(id)
+    answer = actions.find_answer(id)
     return render_template('question.html', id=id, question=question, answer=answer)
 
 
 @app.route("/questions/<id>/new_answer", methods=["POST"])
 def new_answer(id):
     data = csv_handling.read_answers('answer.csv')
-    answer = ['', '', '', '', '', '']
-    answer[0] = actions.new_id('answer.csv')
-    answer[1] = actions.unixtime()
-    answer[3] = id
-    answer[4] = request.form['message']
-    csv_handling.append_answer(answer)
+    new_answer = actions.create_answer_list(id)
+    csv_handling.append_answer(new_answer)
     return redirect("/question/"+str(id))
 
 

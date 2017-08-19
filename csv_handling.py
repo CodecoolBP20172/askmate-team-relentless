@@ -1,16 +1,5 @@
 import csv
-import base64
-
-
-def base64_to_string(encoded_string):
-    decoded_string = base64.b64decode(encoded_string)
-    return decoded_string.decode('utf-8')
-
-
-def string_to_base64(origin):
-    origin_in_bytes = origin.encode('utf-8')
-    b64_encoded_bytes = base64.b64encode(origin_in_bytes)
-    return b64_encoded_bytes.decode('utf-8')
+import actions
 
 
 def read_questions(file_name="question.csv"):
@@ -18,6 +7,8 @@ def read_questions(file_name="question.csv"):
     with open(file_name, newline="") as data_file:
         datareader = csv.reader(data_file, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL)
         for row in datareader:
+                row[4] = actions.base64_to_string(row[4])
+                row[5] = actions.base64_to_string(row[5])
                 data.append(row)
     return data
 
@@ -27,11 +18,14 @@ def read_answers(file_name="answer.csv"):
     with open(file_name, newline="") as data_file:
         datareader = csv.reader(data_file, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL)
         for row in datareader:
+                row[4] = actions.base64_to_string(row[4])
                 data.append(row)
     return data
 
 
 def append_question(new_question, file_name="question.csv"):
+    new_question[4] = actions.string_to_base64(new_question[4])
+    new_question[5] = actions.string_to_base64(new_question[5])
     with open(file_name, "a", newline="") as data_file:
         datawriter = csv.writer(data_file, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL)
         datawriter.writerow(new_question)
@@ -40,6 +34,7 @@ def append_question(new_question, file_name="question.csv"):
 
 
 def append_answer(new_answer, file_name="answer.csv"):
+    new_answer[4] = actions.string_to_base64(new_answer[4])
     with open(file_name, "a", newline="") as data_file:
         datawriter = csv.writer(data_file, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL)
         datawriter.writerow(new_answer)
