@@ -14,7 +14,7 @@ def show_list():
     data = queries.question()
     return render_template('list.html', data=data)
 
-'''
+
 @app.route("/new_question", methods=["GET"])
 def new_question_form():
     return render_template('new_question.html')
@@ -22,10 +22,10 @@ def new_question_form():
 
 @app.route('/save_question', methods=['POST'])
 def route_save():
-    # sql insert input alapján 
+    queries.addNewQuestion(request.form['title'], request.form['message'])
     return redirect('/')
 
-
+'''
 @app.route("/question/<id>", methods=["GET"])
 def show_question(id):
     # sql queri alapján megmutatja a kérdést
