@@ -2,7 +2,7 @@ import time
 from datetime import datetime
 import database_common
 
-dt = datetime.now()
+dt = '{0:%Y-%m-%d %H:%M:%S}'.format(datetime.now())
 
 
 @database_common.connection_handler
