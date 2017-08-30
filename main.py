@@ -25,13 +25,14 @@ def route_save():
     queries.addNewQuestion(request.form['title'], request.form['message'])
     return redirect('/')
 
-'''
+
 @app.route("/question/<id>", methods=["GET"])
 def show_question(id):
-    # sql queri alapján megmutatja a kérdést
-    return render_template('question.html', id=id, question=question, answer=answer)
+    question = queries.showQuestion(id)
+    answers = queries.showAnswers(id)
+    return render_template('question.html', id=id, question=question, answers=answers)
 
-
+'''
 @app.route("/questions/<id>/new_answer", methods=["POST"])
 def new_answer(id):
     # sql insert(válasz) input alapján a kiválasztott kérdéshez
