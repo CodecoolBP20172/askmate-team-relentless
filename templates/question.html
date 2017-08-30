@@ -5,16 +5,15 @@
         <h1>AskMate</h1>
         <h2><a href="/">Home<a></h2><br>
         <table border="1" width="600" class="table">
-                <th>{{ question[4] }}</th>     
+                <th>{{ title }}</th>
             <tr>
-                <td>{{ question[5] }}</td>
+                <td>{{ message }}</td>
             </tr>
             <tr>
                 <th>Answers:</th>
             </tr>
-                {% for i in answer %}
             <tr>
-                <td>{{ i[4] }}</td>
+                <td>{{ message}}</td>
             </tr>
                 {% endfor %}
         </table>
