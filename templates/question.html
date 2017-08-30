@@ -12,11 +12,11 @@
             <tr>
                 <th>Answers:</th>
             </tr>
+                {%for i in answers %}
             <tr>
                 <td>{{ message}}</td>
             </tr>
-                {% endfor %}
-        </table>
+                {% end for %}
         <form id="form" action="/questions/{{ question[0 ] }}/new_answer" method="post">
             <p>New Answer</p>
             <textarea name="message" rows="10" cols="60" minlength="10"></textarea><br>
