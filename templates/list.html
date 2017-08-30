@@ -6,22 +6,25 @@
     <body>
         <h1>AskMate</h1>
         <img src="/static/htph.png">
-        <table border="1" width="600" class="table">
-            <tr>
-                <th>ID</th>
-                <th>Time</th>
-                <th>Question</th>
-                <th>
-                    <a href="/new_question">Ask a Question</a>
-                </th>
+        <a href="/new_question">Ask a Question</a>
+        <a href="/show_all_questions">Show all questions</a>
+        <table border="1" width="800" class="table">
+        <tr>
+            <th>ID</th>
+            <th>Time</th>
+            <th>View</th>
+            <th>Votes</th>
+            <th>Title</th>
             </tr>
-            {% for cell in data %}
+            {% for row in data %}
                 <tr>
-                    <td>{{ cell[0] }}</td>
-                    <td>{{ cell[1] }}</td>
-                    <td>{{ cell[4] }}</td>
+                    <td>{{ row['id'] }}</td>
+                    <td>{{ row['submission_time'] }}</td>
+                    <td>{{ row['view_number'] }}</td>
+                    <td>{{ row['vote_number'] }}</td>
+                    <td>{{ row['title'] }}</td>
                     <td>
-                        <a href="/question/{{cell[0]}}">See Answers</a>
+                        <a href="/question/{{row['id']}}">See Answers</a>
                     </td>
                 </tr>
             {% endfor %}

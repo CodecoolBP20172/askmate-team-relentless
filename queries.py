@@ -4,25 +4,23 @@ import database_common
 
 
 @database_common.connection_handler
-def get_mentor_names(cursor):
-    cursor.execute("SELECT CONCAT(first_name, ' ', last_name) as full_name FROM mentors ORDER BY first_name")
-    names = cursor.fetchall()
-    return names
+def question(cursor):
+    cursor.execute("""SELECT *
+                      FROM question;""")
+    rows = cursor.fetchall()
+    return rows
 
+
+@database_common.connection_handler
+def questionLimited(cursor):
+    cursor.execute("""SELECT *
+                      FROM question
+                      LIMIT 2;""")
+    rows = cursor.fetchall()
+    return rows
 
 
 """
-def base64_to_string(encoded_string):
-    decoded_string = base64.b64decode(encoded_string)
-    return decoded_string.decode('utf-8')
-
-
-def string_to_base64(origin):
-    origin_in_bytes = origin.encode('utf-8')
-    b64_encoded_bytes = base64.b64encode(origin_in_bytes)
-    return b64_encoded_bytes.decode('utf-8')
-
-
 def new_id(csv_filename):
     with open(csv_filename, "r") as csv_file:
         lastrow = None
@@ -72,6 +70,4 @@ def find_answer(id):
         if pick[3] == id:
             answer.append(pick)
     return answer
-
-
 """
