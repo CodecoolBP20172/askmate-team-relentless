@@ -16,7 +16,7 @@
             <tr>
                 <td>{{ message}}</td>
             </tr>
-                {% end for %}
+                {% endfor %}
         <form id="form" action="/questions/{{ question[0 ] }}/new_answer" method="post">
             <p>New Answer</p>
             <textarea name="message" rows="10" cols="60" minlength="10"></textarea><br>
