@@ -30,12 +30,19 @@ def route_save():
 def show_question(id):
     question = queries.showQuestion(id)
     answers = queries.showAnswers(id)
-    return render_template('question.html', id=id, question=question, answers=answers)
+    comments = queries.showQuestionComment(id)
+    return render_template('question.html', id=id, question=question, answers=answers, comments=comments)
 
 
 @app.route("/question/<id>/new_answer", methods=["POST"])
 def new_answer(id):
     queries.addNewAnswer(id, request.form['message'])
+    return redirect("/question/"+str(id))
+
+
+@app.route("/question/<id>/new_question_comment", methods=["POST"])
+def new_question_comment(id):
+    queries.addNewQuestionComment(id, request.form['message'])
     return redirect("/question/"+str(id))
 
 

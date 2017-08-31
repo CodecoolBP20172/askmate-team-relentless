@@ -52,3 +52,18 @@ def addNewQuestion(cursor, title, message):
 def addNewAnswer(cursor, id, message):
     cursor.execute("""INSERT INTO answer (submission_time, vote_number, question_id, message, image)
                       VALUES ((%s), 0, (%s), (%s), '');""", (dt, id, message))
+
+
+@database_common.connection_handler
+def addNewQuestionComment(cursor, id, message):
+    cursor.execute("""INSERT INTO comment (question_id, message, submission_time, edited_count)
+                      VALUES ((%s), (%s),(%s), 0);""", (id, message, dt))
+
+
+@database_common.connection_handler
+def showQuestionComment(cursor, id):
+    cursor.execute("""SELECT message
+                      FROM comment
+                      WHERE question_id={};""".format(id))
+    comments = cursor.fetchall()
+    return comments

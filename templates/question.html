@@ -10,12 +10,29 @@
         <table border="1" width="700" class="table">
             {% for row in question %}
                 <tr>
-                    <th>{{ row['title'] }}</th>     
+                    <th>{{ row['title'] }}</th>
                 </tr>
                 <tr>
                     <td>{{ row['message'] }}</td>
                 </tr>
             {% endfor %}
+            <tr>
+                <th>Comments</th>
+            </tr>
+                {% for comment in comments %}
+                    <tr>
+                        <td>{{ comment['message'] }}</td>
+                    </tr>
+                {% endfor %}
+
+            <tr>
+                <th><form id="form" action="/question/{{ id }}/new_question_comment" method="post">
+                    <p>Comment</p>
+                    <textarea name="message" rows="10" cols="60" minlength="10"></textarea><br>
+                    <button type="submit">Save comment</button>
+                    </form>
+                </th>
+            </tr>
             <tr>
                 <th>Answers:</th>
             </tr>
