@@ -1,52 +1,92 @@
+html {
+        background: url(bg_black.jpg);
+}
 body {
     font-family: arial, helvetica, sans-serif;
     font-size: 14px;
     color: black;
-    background-color: #ffc;
     margin: 20px;
     padding: 0;
 }
-
-/* This is a comment, by the way */
-
-p {
-    line-height: 21px;
+input:focus, textarea:focus {
+    background: lightblue;
 }
-
 h1 {
-    color: #ffc;
-    background-color: #900;
-    font-size: 2em;
-    margin: 0;
-    margin-bottom: 7px;
-    padding: 4px;
-    font-style: italic;
-    text-align: center;
-    letter-spacing: 0.5em;
-    border-bottom-style: solid;
-    border-bottom-width: 0.5em;
-    border-bottom-color: #c00;
-}
-
-h2 {
     color: white;
-    background-color: #090;
-    font-size: 1.5em;
-    margin: 0;
+    font-size: 52px;
+    text-shadow: black 10px 10px 10px;
+}
+h2 {
+    color: wheat;
+    background: darkgreen;
+}
+table {
+    border-radius: 3px;
+}
+.table tr:nth-child(even) {
+    background: palegreen;
+}
+th {
+    color: darkgreen;
+    font-size: 20px;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+.sidebar {
+    border: 4px dashed #a1a1a1;
+    border-radius: 15px;
+    background-color: lightblue;
+	font-size: 20px;
+	padding: 10px 10px 10px 10px; 
+    width: 220px;
+    text-align: left;
+    position: absolute;
+    margin-left: 10px;
+	top: 1; 
+    left: 0;
+    -webkit-box-shadow: 10px 10px 10px #000;
+	-moz-box-shadow: 10px 10px 10px #000;
+	box-shadow: 10px 10px 10px #000;
+}
+.wrapper {
+    border: 4px dashed #a1a1a1;
+    border-radius: 15px;
+    background-color: lightgreen;
+    padding: 10px; 
+	margin: 0 300px 0 250px;  
+    position: absolute;
+    -webkit-box-shadow: 10px 10px 10px #000;
+	-moz-box-shadow: 10px 10px 10px #000;
+	box-shadow: 10px 10px 10px #000;
+}
+.commenter {
+    border: 4px dashed #a1a1a1;
+    border-radius: 15px;
+    background-color: lightcoral;
+    padding: 10px; 
+	margin: 0 0 0 500px;  
+    position: absolute;
+	padding: 10px; 
+    width: 220px;
+    text-align: left;
+    position: absolute;
+    margin-right: 10px;
+	top: 1; 
+    left: 0;
+}
+.comments p {
+    border: 2px palegreen;
+    border-radius: 15px;
     padding: 2px;
-    padding-left: 14px;
+    color: wheat;
+    background-color: darkgreen;
+    display: inline;
+    font-size: 12px;
 }
+/* 
 
-h3 {
-    color: #999;
-    font-size: 1.25em;
-}
-
-img {
-    border-style: dashed;
-    border-width: 2px;
-    border-color: #ccc;
-}
 
 a {
     text-decoration: none;
@@ -61,11 +101,6 @@ li {
     color: #900;
     font-style: italic;
 }
-
-table {
-    border-radius: 3px;
-    background-color: #ccc;
-}
 a:active {
     color: red;
 }
@@ -77,6 +112,4 @@ a:hover {
     border-radius: 3px;
 }
 
-input:focus, textarea:focus {
-    background: #eee;
-}
+ */

@@ -5,13 +5,21 @@
         <link rel="stylesheet" href="/static/style.css">
     </head>
     <body>
-        <h1>Ask new question</h1>
-        <form id="form" action="/save_question" method="post">
-            <p>Title</p>
-            <textarea name="title" rows="1" cols="60"></textarea><br>
-            <p>Description</p>
-            <textarea name="message" rows="10" cols="60" minlength="10"></textarea><br>
-            <button type="submit">Save question</button>
-        </form>
+        <h1>AskMate</h1>
+        <aside class="sidebar">
+        <a href="/">Home</a><br>
+        <a href="/new_question">Ask a Question</a><br>
+        <a href="/show_all_questions">Show all questions</a>
+        </aside>
+        <div class="wrapper">
+            <form id="form" action="/save_question" method="post">
+                <center><h2>Ask a new question!</h2>
+                <center><p>What do you want to know?</p>
+                <center><textarea name="title" rows="1" cols="60"></textarea><br>
+                <center><p>Explain it a little</p>
+                <textarea name="message" rows="10" cols="60" minlength="10"></textarea><br>
+                <center><button type="submit">Save question</button>
+            </form>
+        </div>
     </body>
 </html>

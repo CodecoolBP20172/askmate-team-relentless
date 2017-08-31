@@ -6,25 +6,29 @@
     </head>
     <body>
         <h1>AskMate</h1>
-        <img src="/static/htph.png">
-        <a href="/new_question">Ask a Question</a>
-        <a href="/show_all_questions">Show all questions</a>
-        <table border="1" width="700" class="table">
-        <tr>
-            <th>ID</th>
-            <th>Time</th>
-            <th>Title</th>
-            </tr>
-            {% for row in data %}
-                <tr>
-                    <td>{{ row['id'] }}</td>
-                    <td>{{ row['submission_time'] }}</td>
-                    <td>{{ row['title'] }}</td>
-                    <td>
-                        <a href="/question/{{row['id']}}">See Answers</a>
-                    </td>
+        <aside class="sidebar">
+            <a href="/">Home</a><br>
+            <a href="/new_question">Ask a Question</a><br>
+            <a href="/show_all_questions">Show all questions</a>
+        </aside>
+        <div class="wrapper">
+            <table width="700" class="table">
+                <tr class="tableheader">
+                    <th>ID</th>
+                    <th>Time</th>
+                    <th>Title</th>
                 </tr>
-            {% endfor %}
-        </table>
+                {% for row in data %}
+                    <tr>
+                        <td>{{ row['id'] }}</td>
+                        <td>{{ row['submission_time'] }}</td>
+                        <td>{{ row['title'] }}</td>
+                        <td>
+                            <a href="/question/{{row['id']}}">See Answers</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
     </body>
 </html>
