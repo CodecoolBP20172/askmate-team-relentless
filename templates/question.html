@@ -19,9 +19,9 @@
             <tr>
                 <th>Comments</th>
             </tr>
-                {% for comment in comments %}
+                {% for questioncomment in questioncomments %}
                     <tr>
-                        <td>{{ comment['message'] }}</td>
+                        <td>{{ questioncomment['message'] }}</td>
                     </tr>
                 {% endfor %}
 
@@ -39,6 +39,18 @@
                 {% for answer in answers %}
                     <tr>
                         <td>{{ answer['message'] }}</td>
+                        <td>
+                            <a href="/answer/{{answer['id']}}">Add comment</a>
+                        </td>
+
+                        <tr>
+                            <th>Comments</th>
+                        </tr>
+                            {% for answercomment in answercomments %}
+                                <tr>
+                                    <td>{{ answercomment['message'] }}</td>
+                                </tr>
+                            {% endfor %}
                     </tr>
                 {% endfor %}
         </table>
