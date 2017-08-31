@@ -30,9 +30,8 @@ def route_save():
 def show_question(id):
     question = queries.showQuestion(id)
     answers = queries.showAnswers(id)
-    questioncomments = queries.showQuestionComment(id)
-    # answercomments = queries.showAnswerComment(id)
-    return render_template('question.html', id=id, question=question, answers=answers, questioncomments=questioncomments)
+    comments = queries.showQuestionComment(id)
+    return render_template('question.html', id=id, question=question, answers=answers, comments=comments)
 
 
 @app.route("/question/<id>/new_answer", methods=["POST"])
@@ -45,25 +44,6 @@ def new_answer(id):
 def new_question_comment(id):
     queries.addNewQuestionComment(id, request.form['message'])
     return redirect("/question/"+str(id))
-
-
-@app.route("/answer/<id>", methods=["GET"])
-def new_answer_comment(id):
-    queries.showAnswers(id)
-    return render_template('answer.html', id=id)
-
-
-# @app.route("/answer/<id>", methods=["POST"])
-# def new_answers_comment(id):
-#     queries.addNewAnswerComment(id, request.form['message'])
-#     return redirect("/question/"+str(id))
-
-
-@app.route('/save_answer_comment', methods=['POST'])
-def route_save_answer_comment():
-    queries.addNewAnswerComment(request.form['message'])
-    return redirect('/')
-
 
 
 if __name__ == "__main__":
