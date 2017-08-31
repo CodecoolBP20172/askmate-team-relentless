@@ -46,3 +46,9 @@ def showAnswers(cursor, id):
 def addNewQuestion(cursor, title, message):
     cursor.execute("""INSERT INTO question (submission_time, view_number, vote_number, title, message, image)
                       VALUES ((%s), 0, 0, (%s), (%s), '');""", (dt, title, message))
+
+
+@database_common.connection_handler
+def addNewAnswer(cursor, id, message):
+    cursor.execute("""INSERT INTO answer (submission_time, vote_number, question_id, message, image)
+                      VALUES ((%s), 0, (%s), (%s), '');""", (dt, id, message))

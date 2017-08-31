@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<head>
-  <title>AskMate</title>
+<html>
+    <head>
+        <title>AskMate</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
     <body>
         <h1>AskMate</h1>
         <h2><a href="/">Home<a></h2><br>
@@ -22,10 +25,10 @@
                     </tr>
                 {% endfor %}
         </table>
-        <!-- <form id="form" action="/questions/{{ question['id'] }}/new_answer" method="post">
+        <form id="form" action="/question/{{ id }}/new_answer" method="post">
             <p>New Answer</p>
             <textarea name="message" rows="10" cols="60" minlength="10"></textarea><br>
             <button type="submit">Save answer</button>
-        </form> -->
+        </form>
     </body>
 </html>

@@ -32,12 +32,12 @@ def show_question(id):
     answers = queries.showAnswers(id)
     return render_template('question.html', id=id, question=question, answers=answers)
 
-'''
-@app.route("/questions/<id>/new_answer", methods=["POST"])
+
+@app.route("/question/<id>/new_answer", methods=["POST"])
 def new_answer(id):
-    # sql insert(válasz) input alapján a kiválasztott kérdéshez
+    queries.addNewAnswer(id, request.form['message'])
     return redirect("/question/"+str(id))
-'''
+
 
 if __name__ == "__main__":
     app.run(
