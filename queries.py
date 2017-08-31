@@ -42,6 +42,15 @@ def showAnswers(cursor, id):
     return answers
 
 
+# @database_common.connection_handler NINCS RÁ SZÜKSÉÉÉÉG
+# def showAnswer(cursor, id):
+#     cursor.execute("""SELECT *
+#                       FROM answer
+#                       WHERE answer_id={};""".format(id))
+#     answer = cursor.fetchall()
+#     return answer
+
+
 @database_common.connection_handler
 def addNewQuestion(cursor, title, message):
     cursor.execute("""INSERT INTO question (submission_time, view_number, vote_number, title, message, image)
@@ -65,5 +74,20 @@ def showQuestionComment(cursor, id):
     cursor.execute("""SELECT message
                       FROM comment
                       WHERE question_id={};""".format(id))
-    comments = cursor.fetchall()
-    return comments
+    questioncomments = cursor.fetchall()
+    return questioncomments
+
+
+@database_common.connection_handler
+def addNewAnswerComment(cursor, message):
+    cursor.execute("""INSERT INTO comment (answer_id, message, submission_time, edited_count)
+                      VALUES ((%s), (%s),(%s), 0);""", (id, message, dt))
+
+
+# @database_common.connection_handler
+# def showAnswerComment(cursor, id):
+#     cursor.execute("""SELECT message
+#                       FROM comment
+#                       WHERE answer_id={};""".format(id))
+#     answercomments = cursor.fetchall()
+#     return answercomments
