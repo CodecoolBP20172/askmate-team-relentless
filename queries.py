@@ -67,3 +67,9 @@ def showQuestionComment(cursor, id):
                       WHERE question_id={};""".format(id))
     comments = cursor.fetchall()
     return comments
+
+
+@database_common.connection_handler
+def registerUser(cursor, message):
+    cursor.execute("""INSERT INTO username(user_name, sumbmission_time)
+                      VALUES (message, (%s));""", (message, my_format.format(datetime.now())))
