@@ -67,3 +67,10 @@ def showQuestionComment(cursor, id):
                       WHERE question_id={};""".format(id))
     comments = cursor.fetchall()
     return comments
+
+
+@database_common.connection_handler
+def registerUser(cursor, new_name):
+    cursor.execute("""INSERT INTO username(user_name, submission_time)
+                      VALUES ((%s), (%s))
+                      ON CONFLICT DO NOTHING;""", (new_name, my_format.format(datetime.now())))
