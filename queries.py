@@ -74,3 +74,12 @@ def registerUser(cursor, new_name):
     cursor.execute("""INSERT INTO username(user_name, submission_time)
                       VALUES ((%s), (%s))
                       ON CONFLICT DO NOTHING;""", (new_name, my_format.format(datetime.now())))
+
+
+@database_common.connection_handler
+def listUsers(cursor):
+    cursor.execute("""SELECT user_name, submission_time
+                      FROM username
+                      ORDER BY id DESC;""")
+    users = cursor.fetchall()
+    return users
