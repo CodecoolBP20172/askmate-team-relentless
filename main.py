@@ -27,8 +27,8 @@ def route_save():
 
 
 @app.route('/save_registration', methods=['POST'])
-def route_save():
-    queries.registerUser(request.registration['new_name'])
+def route_save_registration():
+    queries.registerUser(request.form['new_name'])
     return redirect('/')
 
 
