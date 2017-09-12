@@ -72,4 +72,5 @@ def showQuestionComment(cursor, id):
 @database_common.connection_handler
 def registerUser(cursor, new_name):
     cursor.execute("""INSERT INTO username(user_name, submission_time)
-                      VALUES ((%s), (%s));""", (new_name, my_format.format(datetime.now())))
+                      VALUES ((%s), (%s))
+                      ON CONFLICT DO NOTHING;""", (new_name, my_format.format(datetime.now())))
