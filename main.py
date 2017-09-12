@@ -32,6 +32,12 @@ def route_save_registration():
     return redirect('/')
 
 
+@app.route('/list_users')
+def list_users():
+    users = queries.listUsers()
+    return render_template('all_users.html', users=users)
+
+
 @app.route("/question/<id>", methods=["GET"])
 def show_question(id):
     question = queries.showQuestion(id)
