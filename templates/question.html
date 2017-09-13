@@ -42,6 +42,9 @@
                     </tr>
                     {% for answer in answers %}
                         <tr>
+                        <td class="user">{{ answer['user_name'] }}</td>
+                        </tr>    
+                        <tr>
                             <td>{{ answer['message'] }}</td>
                         </tr>
                     {% endfor %}
