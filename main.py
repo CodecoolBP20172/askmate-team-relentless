@@ -17,12 +17,13 @@ def show_list():
 
 @app.route("/new_question", methods=["GET"])
 def new_question_form():
-    return render_template('new_question.html')
+    users = queries.listUsers()
+    return render_template('new_question.html', users=users)
 
 
 @app.route('/save_question', methods=['POST'])
 def route_save():
-    queries.addNewQuestion(request.form['title'], request.form['message'])
+    queries.addNewQuestion(request.form['title'], request.form['message'], request.form['pick_user'])
     return redirect('/')
 
 
