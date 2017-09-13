@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AskMate</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <h1>AskMate</h1>
+        <aside class="sidebar">
+            <a href="/">Home</a><br>
+            <a href="/new_question">Ask a Question</a><br>
+        </aside>
+        <div class="wrapper">
+            <table width="700" class="table">
+                {% for row in answer %}
+                    <tr>
+                        <td>{{ row['message'] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <table width="700" class="table">
+                <tr>
+                    <form id="form" action="/answer/{{ id }}/comment" method="post">
+                        <center><p>Comment</p>
+                        <center><textarea name="message" rows="4" cols="50" minlength="10"></textarea><br>
+                        <center><button type="submit">Save comment</button>
+                    </form>
+                </tr>
+            <table>
+        </div>
+    </body>
+</html>

@@ -42,7 +42,7 @@
                         <td class="user">{{ answer['user_name'] }}</td>
                         </tr>
                         <tr>
-                            <td>{{ answer['message'] }}</td>
+                            <td class="answer">{{ answer['message'] }}</td>
                         </tr>
                     {% endfor %}
             </table>
@@ -51,12 +51,13 @@
                     <form id="form" action="/question/{{ id }}/new_answer" method="post">
                         <center><label>New Answer</label>
                         <center><textarea name="message" rows="4" cols="50" minlength="10"></textarea><br>
-                        <label>Pick user</label><br>
-                        <select name="pick_user">
-                            {% for user in users %}
-                            <option>{{ user['user_name'] }}</option>
-                            {% endfor %}
-                        </select>
+                        <p><label>Pick user</label><br>
+                            <select name="pick_user">
+                                {% for user in users %}
+                                <option>{{ user['user_name'] }}</option>
+                                {% endfor %}
+                            </select>
+                        </p>
                         <center><button type="submit">Save answer</button>
                     </form>
                 </tr>
