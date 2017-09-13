@@ -49,9 +49,9 @@ def addNewQuestion(cursor, title, message, pick_user):
 
 
 @database_common.connection_handler
-def addNewAnswer(cursor, id, message):
-    cursor.execute("""INSERT INTO answer (submission_time, vote_number, question_id, message, image)
-                      VALUES ((%s), 0, (%s), (%s), '');""", (my_format.format(datetime.now()), id, message))
+def addNewAnswer(cursor, id, message, user_name):
+    cursor.execute("""INSERT INTO answer (submission_time, vote_number, question_id, message, image, user_name)
+                      VALUES ((%s), 0, (%s), (%s), '', (%s));""", (my_format.format(datetime.now()), id, message, user_name))
 
 
 @database_common.connection_handler

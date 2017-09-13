@@ -44,12 +44,13 @@ def show_question(id):
     question = queries.showQuestion(id)
     answers = queries.showAnswers(id)
     comments = queries.showQuestionComment(id)
-    return render_template('question.html', id=id, question=question, answers=answers, comments=comments)
+    users = queries.listUsers()
+    return render_template('question.html', id=id, question=question, answers=answers, comments=comments, users=users)
 
 
 @app.route("/question/<id>/new_answer", methods=["POST"])
 def new_answer(id):
-    queries.addNewAnswer(id, request.form['message'])
+    queries.addNewAnswer(id, request.form['message'], request.form['pick_user'])
     return redirect("/question/"+str(id))
 
 
