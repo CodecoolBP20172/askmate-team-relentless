@@ -28,7 +28,7 @@ def questionLimited(cursor):
 def showQuestion(cursor, id):
     cursor.execute("""SELECT *
                       FROM question
-                      WHERE id={};""".format(id))
+                      WHERE id=%s""", (id,))
     question = cursor.fetchall()
     return question
 
@@ -37,12 +37,13 @@ def showQuestion(cursor, id):
 def showAnswers(cursor, id):
     cursor.execute("""SELECT *
                       FROM answer
-                      WHERE question_id={};""".format(id))
+                      WHERE question_id=%s""", (id,))
     answers = cursor.fetchall()
     return answers
 
 
 @database_common.connection_handler
+#az insertbe itt még bele kell tenni a usert is (a legördülő menüből)
 def addNewQuestion(cursor, title, message):
     cursor.execute("""INSERT INTO question (submission_time, view_number, vote_number, title, message, image)
                       VALUES ((%s), 0, 0, (%s), (%s), '');""", (my_format.format(datetime.now()), title, message))
@@ -64,7 +65,7 @@ def addNewQuestionComment(cursor, id, message):
 def showQuestionComment(cursor, id):
     cursor.execute("""SELECT message
                       FROM comment
-                      WHERE question_id={};""".format(id))
+                      WHERE question_id=%s""", (id,))
     comments = cursor.fetchall()
     return comments
 
