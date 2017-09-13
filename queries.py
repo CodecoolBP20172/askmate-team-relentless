@@ -43,10 +43,9 @@ def showAnswers(cursor, id):
 
 
 @database_common.connection_handler
-#az insertbe itt még bele kell tenni a usert is (a legördülő menüből)
-def addNewQuestion(cursor, title, message):
-    cursor.execute("""INSERT INTO question (submission_time, view_number, vote_number, title, message, image)
-                      VALUES ((%s), 0, 0, (%s), (%s), '');""", (my_format.format(datetime.now()), title, message))
+def addNewQuestion(cursor, title, message, pick_user):
+    cursor.execute("""INSERT INTO question (submission_time, view_number, vote_number, title, message, image, user_name)
+                      VALUES ((%s), 0, 0, (%s), (%s), '', (%s));""", (my_format.format(datetime.now()), title, message, pick_user))
 
 
 @database_common.connection_handler

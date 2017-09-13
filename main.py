@@ -23,7 +23,7 @@ def new_question_form():
 
 @app.route('/save_question', methods=['POST'])
 def route_save():
-    queries.addNewQuestion(request.form['title'], request.form['message'])
+    queries.addNewQuestion(request.form['title'], request.form['message'], request.form['pick_user'])
     return redirect('/')
 
 

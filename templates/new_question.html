@@ -19,7 +19,7 @@
                 <center><p>Explain it a little</p>
                 <textarea name="message" rows="10" cols="60" minlength="10"></textarea><br>
                 <label>Pick user</label>
-                <select name="users">
+                <select name="pick_user">
                     {% for user in users %}
                     <option>{{ user['user_name'] }}</option>
                     {% endfor %}
