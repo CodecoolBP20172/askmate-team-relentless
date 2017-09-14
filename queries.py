@@ -84,19 +84,20 @@ def listUsers(cursor):
     users = cursor.fetchall()
     return users
 
+
 @database_common.connection_handler
-def user_questions(cursor):
+def user_questions(cursor, user_name):
     cursor.execute("""SELECT question.title
                       FROM username
                       INNER JOIN question ON
                       username.user_name=question.user_name
-                      WHERE user_name.user_id=%s""",(id))
+                      WHERE username.user_name=%s""", (user_name, ))
     user_q = cursor.fetchall()
     return user_q
 
 
 @database_common.connection_handler
-def user_answers(cursor):
+def user_answers(cursor, user_name):
     cursor.execute("""SELECT answer.message
                       FROM username
                       INNER JOIN answer ON
@@ -104,3 +105,4 @@ def user_answers(cursor):
                      """)
     user_a = cursor.fetchall()
     return user_a
+

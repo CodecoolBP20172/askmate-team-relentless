@@ -57,7 +57,14 @@ def new_answer(id):
 @app.route("/question/<id>/new_question_comment", methods=["POST"])
 def new_question_comment(id):
     queries.addNewQuestionComment(id, request.form['message'])
-    return redirect("/question/"+str(id))
+    return redirect("/question/"+str(id))   
+
+
+@app.route("/user_page/<user_name>", methods=["GET"])
+def user_page(user_name):
+    userquestion = queries.user_questions(user_name)
+    # useranswer = queries.user_answers(id)
+    return render_template('user_page.html', userquestion=userquestion)
 
 
 if __name__ == "__main__":
