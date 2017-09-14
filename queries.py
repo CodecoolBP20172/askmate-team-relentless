@@ -83,3 +83,24 @@ def listUsers(cursor):
                       ORDER BY id DESC;""")
     users = cursor.fetchall()
     return users
+
+@database_common.connection_handler
+def user_questions(cursor):
+    cursor.execute("""SELECT question.title
+                      FROM username
+                      INNER JOIN question ON
+                      username.user_name=question.user_name
+                      WHERE user_name.user_id=%s""",(id))
+    user_q = cursor.fetchall()
+    return user_q
+
+
+@database_common.connection_handler
+def user_answers(cursor):
+    cursor.execute("""SELECT answer.message
+                      FROM username
+                      INNER JOIN answer ON
+                      username.user_name=answer.user_name
+                     """)
+    user_a = cursor.fetchall()
+    return user_a
