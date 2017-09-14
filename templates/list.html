@@ -5,35 +5,33 @@
         <link rel="stylesheet" href="/static/style.css">
     </head>
     <body>
-        <h1>AskMate</h1>
+        <h1>
+            <a href="/">AskMate</a>
+        </h1>
         <aside class="sidebar">
-            <a href="/">Home</a><br>
             <a href="/new_question">Ask a Question</a><br>
             <a href="/show_all_questions">Show all questions</a>
             <a href="/list_users">Show all users </a>
             <form id="form" action="/save_registration" method="post">
                 <p>
-                    <label>Registration</label><br>
+                    Registration<br>
                     <textarea name="new_name" rows="1" cols="15"></textarea><br>
-                </p>
-                <button type="submit">Register Now</button>
+                    <button type="submit">Register Now</button>
+                </p>    
             </form>
         </aside>
         <div class="wrapper">
             <table width="700" class="table">
                 <tr class="tableheader">
                     <th>ID</th>
-                    <th>Time</th>
                     <th>Title</th>
+                    <th>Time</th>
                 </tr>
                 {% for row in data %}
                     <tr>
                         <td>{{ row['id'] }}</td>
+                        <td><a href ="/question/{{row['id']}}">{{ row['title'] }}</a></td>
                         <td>{{ row['submission_time'] }}</td>
-                        <td>{{ row['title'] }}</td>
-                        <td>
-                            <a href="/question/{{row['id']}}">See Answers</a>
-                        </td>
                     </tr>
                 {% endfor %}
             </table>

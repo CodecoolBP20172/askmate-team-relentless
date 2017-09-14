@@ -5,25 +5,28 @@
         <link rel="stylesheet" href="/static/style.css">
     </head>
     <body>
-        <h1>AskMate</h1>
+        <h1>
+            <a href="/">AskMate</a>
+        </h1>
         <aside class="sidebar">
-        <a href="/">Home</a><br>
-        <a href="/new_question">Ask a Question</a><br>
-        <a href="/show_all_questions">Show all questions</a>
+            <a href="/show_all_questions">Show all questions</a>
         </aside>
         <div class="wrapper">
             <form id="form" action="/save_question" method="post">
                 <center><h2>Ask a new question!</h2>
-                <center><p>What do you want to know?</p>
-                <center><textarea name="title" rows="1" cols="60"></textarea><br>
-                <center><p>Explain it a little</p>
-                <textarea name="message" rows="10" cols="60" minlength="10"></textarea><br>
-                <label>Pick user</label>
-                <select name="pick_user">
-                    {% for user in users %}
-                    <option>{{ user['user_name'] }}</option>
-                    {% endfor %}
-                </select>
+                <p><label><center>What do you want to know?</label>
+                    <center><textarea name="title" rows="1" cols="60"></textarea><br>
+                </p>
+                <p><label><center>Explain it a little</label>
+                    <center><textarea name="message" rows="10" cols="60" minlength="10"></textarea><br>
+                </p>
+                <p><label>Pick user</label><br>
+                    <select name="pick_user">
+                        {% for user in users %}
+                        <option>{{ user['user_name'] }}</option>
+                        {% endfor %}
+                    </select>
+                </p>
                 <center><button type="submit">Save question</button>
             </form>
         </div>

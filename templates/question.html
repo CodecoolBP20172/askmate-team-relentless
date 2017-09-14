@@ -5,19 +5,28 @@
         <link rel="stylesheet" href="/static/style.css">
     </head>
     <body>
-        <h1>AskMate</h1>
+        <h1>
+            <a href="/">AskMate</a>
+        </h1>
         <aside class="sidebar">
-            <a href="/">Home</a><br>
             <a href="/new_question">Ask a Question</a><br>
             <a href="/show_all_questions">Show all questions</a>
         </aside>
         <div class="wrapper">
             <table width="700">
+                {% for row in question %}
+                <tr>
+                    <td><h2>Question by: {{ row['user_name'] }}</h2>
+                        <h3>{{ row['title'] }}</h3>
+                        {{ row['message'] }}
+                    </td>
+                {% endfor %}
+                </tr>
                 <tr>
                     <td class="comments">
                         <h2>Comments on this question:</h2>
                         {% for comment in comments %}
-                        <p>{{ comment['message'] }}</p> 
+                        <p>{{ comment['message'] }}</p>
                         {% endfor %}
                         <form id="form" action="/question/{{ id }}/new_question_comment" method="post"><br>
                             <textarea name="message" rows="1" cols="28" maxlength="30"></textarea><br>
@@ -25,41 +34,30 @@
                         </form>
                     </td>
                 </tr>
-                {% for row in question %}
-                    <tr>
-                        <td><h2>Question:</h2>
-                        <h3>{{ row['title'] }}</h3></td>
-                    </tr>
-                    <tr>
-                        <td>{{ row['message'] }}</td>
-                    </tr>
-                    <tr>
-                        <td class="user">{{ row['user_name'] }}</td>
-                    </tr>
+                <tr>
+                    <td><h2>Answers:</h2><td>
+                </tr>
+                {% for answer in answers %}
+                <tr>
+                    <td class="user">{{ answer['user_name'] }}</td>
+                </tr>
+                <tr>
+                    <td class="answer">{{ answer['message'] }}</td>
+                </tr>
                 {% endfor %}
-                    <tr>
-                        <td><h2>Answers:</h2><td>
-                    </tr>
-                    {% for answer in answers %}
-                        <tr>
-                        <td class="user">{{ answer['user_name'] }}</td>
-                        </tr>    
-                        <tr>
-                            <td>{{ answer['message'] }}</td>
-                        </tr>
-                    {% endfor %}
             </table>
             <table width="700">
                 <tr>
                     <form id="form" action="/question/{{ id }}/new_answer" method="post">
-                        <center><p>New Answer</p>
+                        <center>New Answer
                         <center><textarea name="message" rows="4" cols="50" minlength="10"></textarea><br>
-                        <label>Pick user</label>
-                        <select name="pick_user">
-                            {% for user in users %}
-                            <option>{{ user['user_name'] }}</option>
-                            {% endfor %}
-                        </select>
+                        <p>Pick user<br>
+                            <select name="pick_user">
+                                {% for user in users %}
+                                <option>{{ user['user_name'] }}</option>
+                                {% endfor %}
+                            </select>
+                        </p>
                         <center><button type="submit">Save answer</button>
                     </form>
                 </tr>
