@@ -1,40 +1,20 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>AskMate</title>
-        <link rel="stylesheet" href="/static/style.css">
-    </head>
-    <body>
-        <h1>
-            <a href="/">AskMate</a>
-        </h1>
-        <aside class="sidebar">
-            <a href="/new_question">Ask a Question</a><br>
-            <a href="/show_all_questions">Show all questions</a>
-            <a href="/list_users">Show all users </a>
-            <form id="form" action="/save_registration" method="post">
-                <p>
-                    Registration<br>
-                    <textarea name="new_name" rows="1" cols="15"></textarea><br>
-                    <button type="submit">Register Now</button>
-                </p>    
-            </form>
-        </aside>
-        <div class="wrapper">
-            <table width="700" class="table">
-                <tr class="tableheader">
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Time</th>
+{% extends "template.html" %}
+{% block title %}Welcome{% endblock %}
+{% block content %}
+    <div class="wrapper">
+        <table width="700" class="table">
+            <tr class="tableheader">
+                <th>ID</th>
+                <th>Title</th>
+                <th>Time</th>
+            </tr>
+            {% for row in data %}
+                <tr>
+                    <td>{{ row['id'] }}</td>
+                    <td><a href ="/question/{{row['id']}}">{{ row['title'] }}</a></td>
+                    <td>{{ row['submission_time'] }}</td>
                 </tr>
-                {% for row in data %}
-                    <tr>
-                        <td>{{ row['id'] }}</td>
-                        <td><a href ="/question/{{row['id']}}">{{ row['title'] }}</a></td>
-                        <td>{{ row['submission_time'] }}</td>
-                    </tr>
-                {% endfor %}
-            </table>
-        </div>
-    </body>
-</html>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

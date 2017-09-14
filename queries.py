@@ -15,7 +15,7 @@ def question(cursor):
 
 
 @database_common.connection_handler
-def questionLimited(cursor):
+def question_limited(cursor):
     cursor.execute("""SELECT *
                       FROM question
                       ORDER BY id DESC
@@ -25,7 +25,7 @@ def questionLimited(cursor):
 
 
 @database_common.connection_handler
-def showQuestion(cursor, id):
+def show_question(cursor, id):
     cursor.execute("""SELECT *
                       FROM question
                       WHERE id=%s""", (id,))
@@ -34,7 +34,7 @@ def showQuestion(cursor, id):
 
 
 @database_common.connection_handler
-def showAnswers(cursor, id):
+def show_answers(cursor, id):
     cursor.execute("""SELECT *
                       FROM answer
                       WHERE question_id=%s""", (id,))
@@ -43,25 +43,25 @@ def showAnswers(cursor, id):
 
 
 @database_common.connection_handler
-def addNewQuestion(cursor, title, message, pick_user):
+def add_new_question(cursor, title, message, pick_user):
     cursor.execute("""INSERT INTO question (submission_time, view_number, vote_number, title, message, image, user_name)
                       VALUES ((%s), 0, 0, (%s), (%s), '', (%s));""", (my_format.format(datetime.now()), title, message, pick_user))
 
 
 @database_common.connection_handler
-def addNewAnswer(cursor, id, message, user_name):
+def add_new_answer(cursor, id, message, user_name):
     cursor.execute("""INSERT INTO answer (submission_time, vote_number, question_id, message, image, user_name)
                       VALUES ((%s), 0, (%s), (%s), '', (%s));""", (my_format.format(datetime.now()), id, message, user_name))
 
 
 @database_common.connection_handler
-def addNewQuestionComment(cursor, id, message):
+def add_new_question_comment(cursor, id, message):
     cursor.execute("""INSERT INTO comment (question_id, message, submission_time, edited_count)
                       VALUES ((%s), (%s),(%s), 0);""", (id, message, my_format.format(datetime.now())))
 
 
 @database_common.connection_handler
-def showQuestionComment(cursor, id):
+def show_question_comment(cursor, id):
     cursor.execute("""SELECT message
                       FROM comment
                       WHERE question_id=%s""", (id,))
@@ -70,14 +70,14 @@ def showQuestionComment(cursor, id):
 
 
 @database_common.connection_handler
-def registerUser(cursor, new_name):
+def register_user(cursor, new_name):
     cursor.execute("""INSERT INTO username(user_name, submission_time)
                       VALUES ((%s), (%s))
                       ON CONFLICT DO NOTHING;""", (new_name, my_format.format(datetime.now())))
 
 
 @database_common.connection_handler
-def listUsers(cursor):
+def list_users(cursor):
     cursor.execute("""SELECT user_name, submission_time
                       FROM username
                       ORDER BY id DESC;""")

@@ -1,67 +1,55 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>AskMate</title>
-        <link rel="stylesheet" href="/static/style.css">
-    </head>
-    <body>
-        <h1>
-            <a href="/">AskMate</a>
-        </h1>
-        <aside class="sidebar">
-            <a href="/new_question">Ask a Question</a><br>
-            <a href="/show_all_questions">Show all questions</a>
-        </aside>
-        <div class="wrapper">
-            <table width="700">
-                {% for row in question %}
-                <tr>
-                    <td><h2>Question by: {{ row['user_name'] }}</h2>
-                        <h3>{{ row['title'] }}</h3>
-                        {{ row['message'] }}
-                    </td>
-                {% endfor %}
-                </tr>
-                <tr>
-                    <td class="comments">
-                        <h2>Comments on this question:</h2>
-                        {% for comment in comments %}
-                        <p>{{ comment['message'] }}</p>
-                        {% endfor %}
-                        <form id="form" action="/question/{{ id }}/new_question_comment" method="post"><br>
-                            <textarea name="message" rows="1" cols="28" maxlength="30"></textarea><br>
-                        <button type="submit">Add a comment</button>
-                        </form>
-                    </td>
-                </tr>
-                <tr>
-                    <td><h2>Answers:</h2><td>
-                </tr>
-                {% for answer in answers %}
-                <tr>
-                    <td class="user">{{ answer['user_name'] }}</td>
-                </tr>
-                <tr>
-                    <td class="answer">{{ answer['message'] }}</td>
-                </tr>
-                {% endfor %}
-            </table>
-            <table width="700">
-                <tr>
-                    <form id="form" action="/question/{{ id }}/new_answer" method="post">
-                        <center>New Answer
-                        <center><textarea name="message" rows="4" cols="50" minlength="10"></textarea><br>
-                        <p>Pick user<br>
-                            <select name="pick_user">
-                                {% for user in users %}
-                                <option>{{ user['user_name'] }}</option>
-                                {% endfor %}
-                            </select>
-                        </p>
-                        <center><button type="submit">Save answer</button>
+{% extends "template.html" %}
+{% block title %}Ask a question{% endblock %}
+{% block content %}
+    <div class="wrapper">
+        <table width="700">
+            {% for row in question %}
+            <tr>
+                <td><h2>Question by: {{ row['user_name'] }}</h2>
+                    <h3>{{ row['title'] }}</h3>
+                    {{ row['message'] }}
+                </td>
+            {% endfor %}
+            </tr>
+            <tr>
+                <td class="comments">
+                    <h2>Comments on this question:</h2>
+                    {% for comment in comments %}
+                    <p>{{ comment['message'] }}</p>
+                    {% endfor %}
+                    <form id="form" action="/question/{{ id }}/new_question_comment" method="post"><br>
+                        <textarea name="message" rows="1" cols="28" maxlength="30"></textarea><br>
+                    <button class="button" type="submit">Add a comment</button>
                     </form>
-                </tr>
-            <table>
-        </div>
-    </body>
-</html>
+                </td>
+            </tr>
+            <tr>
+                <td><h2>Answers:</h2><td>
+            </tr>
+            {% for answer in answers %}
+            <tr>
+                <td class="user">{{ answer['user_name'] }}</td>
+            </tr>
+            <tr>
+                <td class="answer">{{ answer['message'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <table width="700">
+            <tr>
+                <form id="form" action="/question/{{ id }}/new_answer" method="post">
+                    <center>New Answer
+                    <center><textarea name="message" rows="4" cols="50" minlength="10"></textarea><br>
+                    <p>Pick user<br>
+                        <select class="dropdown" name="pick_user">
+                            {% for user in users %}
+                            <option>{{ user['user_name'] }}</option>
+                            {% endfor %}
+                        </select>
+                    </p>
+                    <center><button class="button" type="submit">Save answer</button>
+                </form>
+            </tr>
+        <table>
+    </div>
+{% endblock %}
