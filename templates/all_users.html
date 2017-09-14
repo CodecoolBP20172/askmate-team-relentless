@@ -1,26 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Users</title>
-        <link rel="stylesheet" href="/static/style.css">
-    </head>
-    <body>
-        <h1>
-            <a href="/">AskMate</a>
-        </h1>
-        <div class="wrapper">
-            <table width="700" class="table">
-                <tr class="tableheader">
-                    <th>User Name</th>
-                    <th>Submission time</th>
+{% extends "template.html" %}
+{% block title %}Users{% endblock %}
+{% block content %}
+    <div class="wrapper">
+        <table width="700" class="table">
+            <tr class="tableheader">
+                <th>User Name</th>
+                <th>Submission time</th>
+            </tr>
+            {% for row in users %}
+                <tr>
+                    <td>{{ row['user_name'] }}</td>
+                    <td>{{ row['submission_time'] }}</td>
                 </tr>
-                {% for row in users %}
-                    <tr>
-                        <td>{{ row['user_name'] }}</td>
-                        <td>{{ row['submission_time'] }}</td>
-                    </tr>
-                {% endfor %}
-            </table>
-        </div>
-    </body>
-</html>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

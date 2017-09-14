@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <link rel="stylesheet" href="/static/style.css">
+    <title>AskMate - {% block title %}{% endblock %}</title>
+    {% endblock %}
+  </head>
+  <body>
+    <h1>
+      <a href="/">AskMate</a>
+    </h1>
+    <aside class="sidebar">
+    <a href="/new_question">Ask a Question</a><br>
+    <a href="/show_all_questions">Show all questions</a>
+    <a href="/list_users">Show all users </a>
+    <form id="form" action="/save_registration" method="post">
+      <p>
+        <label>Registration</label><br>
+        <textarea name="new_name" rows="1" cols="15"></textarea><br>
+      </p>
+      <button class="button" type="submit">Register Now</button>
+    </form>
+    </aside>
+    <div id="content">{% block content %}{% endblock %}</div>
+  </body>
+</html>

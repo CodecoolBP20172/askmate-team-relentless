@@ -9,26 +9,23 @@ body {
     padding: 0;
 }
 input:focus, textarea:focus {
-    background: lightblue;
+    background: rgb(219, 232, 225);
 }
 h1 a {
-   -webkit-text-stroke: 2px black;
-   color: white;
+   -webkit-text-stroke: 2px rgb(24, 98, 60);
+   color: rgb(219, 232, 225);
    letter-spacing: -5px;
    font-size: 64px;
 }
 h2 {
-    color: wheat;
-    background: blue;
-}
-table {
-    border-radius: 3px;
+    color: rgb(219, 232, 225);
+    background: rgb(24, 98, 60);
 }
 .table tr:nth-child(even) {
-    background: aqua;
+    background: rgba(161, 198, 179, 0.6);
 }
 th {
-    color: blue;
+    color: rgb(24, 98, 60);
     font-size: 20px;
 }
 th, td {
@@ -40,9 +37,8 @@ th, td {
     left: 20px;
 }
 .sidebar {
-    border: 4px dashed #a1a1a1;
-    border-radius: 15px;
-    background: url(sidebar_bg.jpg);;
+    background: rgba(106, 163, 134, 0.6);
+    border-radius: 10px;
 	font-size: 20px;
 	padding: 10px 10px 10px 10px;
     width: 220px;
@@ -53,17 +49,14 @@ th, td {
     left: 0;
 }
 .wrapper {
-    border: 4px dashed #a1a1a1;
-    border-radius: 15px;
-    background-color: aquamarine;
+    background-color: rgba(161, 198, 179, 0.6);
+    border-radius: 10px;
     padding: 10px;
 	margin: 0 300px 0 250px;
     position: absolute;
 }
 .commenter {
-    border: 4px dashed #a1a1a1;
-    border-radius: 15px;
-    background-color: lightcoral;
+    background-color: rgb(161, 198, 179);
     padding: 10px;
 	margin: 0 0 0 500px;
     position: absolute;
@@ -75,39 +68,55 @@ th, td {
     left: 0;
 }
 .comments p ,.user {
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 3px;
-    color: wheat;
-    background-color: blue;
+    color: rgb(219, 232, 225);
+    background-color: rgb(24, 98, 60);
     display: inline;
     font-size: 12px;
 }
-
-/*
-
-
-a {
+.button {
+    background-color: rgb(59, 131, 94);
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
     text-decoration: none;
-}
-
-strong {
-    font-style: italic;
-    text-transform: uppercase;
-}
-
-li {
-    color: #900;
-    font-style: italic;
-}
-a:active {
-    color: red;
-}
-
-a:hover {
-    text-decoration: none;
-    color: blue;
-    background-color: yellow;
+    display: inline-block;
+    font-size: 12px;
     border-radius: 3px;
 }
-
- */
+.button:hover {
+    text-decoration: none;
+    color: rgb(59, 131, 94);
+    background-color: white;
+    border-radius: 3px;
+}
+.dropdown {
+    background-color: rgb(59, 131, 94);
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 3px; 
+}
+a {
+    color: rgb(0, 56, 28);
+    padding: 3px 3px;
+    text-decoration: none;
+}
+a:active {
+    color: rgb(0, 106, 28);
+    padding: 3px 3px;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    color: rgb(0, 106, 28);
+    background-color: rgba(219, 232, 225, 0.4);
+    padding: 3px 3px;
+    border-radius: 3px;
+}
