@@ -75,9 +75,8 @@ th, td {
     left: 0;
 }
 .comments p ,.user {
-    border: 2px aquamarine;
     border-radius: 15px;
-    padding: 2px;
+    padding: 3px;
     color: wheat;
     background-color: blue;
     display: inline;

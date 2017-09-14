@@ -14,6 +14,14 @@
         </aside>
         <div class="wrapper">
             <table width="700">
+                {% for row in question %}
+                <tr>
+                    <td><h2>Question by: {{ row['user_name'] }}</h2>
+                        <h3>{{ row['title'] }}</h3>
+                        {{ row['message'] }}
+                    </td>
+                {% endfor %}
+                </tr>
                 <tr>
                     <td class="comments">
                         <h2>Comments on this question:</h2>
@@ -26,31 +34,24 @@
                         </form>
                     </td>
                 </tr>
-                {% for row in question %}
-                        <h2>Question:</h2>
-                        <h3>{{ row['title'] }}</h3>
-                        {{ row['message'] }}
-                        <p><class="user">{{ row['user_name'] }}</p>
-
+                <tr>
+                    <td><h2>Answers:</h2><td>
+                </tr>
+                {% for answer in answers %}
+                <tr>
+                    <td class="user">{{ answer['user_name'] }}</td>
+                </tr>
+                <tr>
+                    <td class="answer">{{ answer['message'] }}</td>
+                </tr>
                 {% endfor %}
-                    <tr>
-                        <td><h2>Answers:</h2><td>
-                    </tr>
-                    {% for answer in answers %}
-                        <tr>
-                        <td class="user">{{ answer['user_name'] }}</td>
-                        </tr>
-                        <tr>
-                            <td class="answer">{{ answer['message'] }}</td>
-                        </tr>
-                    {% endfor %}
             </table>
             <table width="700">
                 <tr>
                     <form id="form" action="/question/{{ id }}/new_answer" method="post">
-                        <center><label>New Answer</label>
+                        <center>New Answer
                         <center><textarea name="message" rows="4" cols="50" minlength="10"></textarea><br>
-                        <p><label>Pick user</label><br>
+                        <p>Pick user<br>
                             <select name="pick_user">
                                 {% for user in users %}
                                 <option>{{ user['user_name'] }}</option>
