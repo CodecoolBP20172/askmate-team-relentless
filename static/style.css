@@ -22,7 +22,7 @@ h2 {
     background: blue;
 }
 table {
-    border-radius: 3px; 
+    border-radius: 3px;
 }
 .table tr:nth-child(even) {
     background: aqua;
@@ -56,8 +56,8 @@ th, td {
     border: 4px dashed #a1a1a1;
     border-radius: 15px;
     background-color: aquamarine;
-    padding: 10px; 
-	margin: 0 300px 0 250px;  
+    padding: 10px;
+	margin: 0 300px 0 250px;
     position: absolute;
 }
 .commenter {
@@ -74,7 +74,7 @@ th, td {
 	top: 1;
     left: 0;
 }
-.comments p,.user {
+.comments p ,.user {
     border: 2px aquamarine;
     border-radius: 15px;
     padding: 2px;
@@ -83,6 +83,7 @@ th, td {
     display: inline;
     font-size: 12px;
 }
+
 /*
 
 
