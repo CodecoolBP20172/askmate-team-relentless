@@ -48,9 +48,9 @@
             <table width="700">
                 <tr>
                     <form id="form" action="/question/{{ id }}/new_answer" method="post">
-                        <center><label>New Answer</label>
+                        <center>New Answer
                         <center><textarea name="message" rows="4" cols="50" minlength="10"></textarea><br>
-                        <p><label>Pick user</label><br>
+                        <p>Pick user<br>
                             <select name="pick_user">
                                 {% for user in users %}
                                 <option>{{ user['user_name'] }}</option>
