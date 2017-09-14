@@ -11,12 +11,6 @@ body {
 input:focus, textarea:focus {
     background: rgb(219, 232, 225);
 }
-/* h1 a {
-   -webkit-text-stroke: 2px rgb(24, 98, 60);
-   color: rgb(219, 232, 225);
-   letter-spacing: -5px;
-   font-size: 64px;
-} */
 h2 {
     color: rgb(219, 232, 225);
     background: rgb(24, 98, 60);
@@ -127,4 +121,23 @@ font-weight: bold;
 font-family: Helvetica;
 text-decoration: none;
 text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+}
+.wrapper02 {
+    position: relative;
+    overflow: hidden;
+    top: 200px;
+    width: 400px;
+    height: 400px; 
+}
+
+#slide {
+    position: absolute;
+    left: -500px;
+    transition: 1s;
+    height: 80%;
+    width: 80%;
+}
+.wrapper02:hover #slide {
+    transition: 1s;
+    left: 0;
 }
