@@ -11,81 +11,79 @@ body {
 input:focus, textarea:focus {
     background: lightblue;
 }
-h1 {
-    color: white;
-    font-size: 52px;
-    text-shadow: black 10px 10px 10px;
+h1 a {
+   -webkit-text-stroke: 2px black;
+   color: white;
+   letter-spacing: -5px;
+   font-size: 64px;
 }
 h2 {
     color: wheat;
-    background: darkgreen;
+    background: blue;
 }
 table {
     border-radius: 3px;
 }
 .table tr:nth-child(even) {
-    background: palegreen;
+    background: aqua;
 }
 th {
-    color: darkgreen;
+    color: blue;
     font-size: 20px;
 }
 th, td {
     padding: 5px;
     text-align: left;
 }
+.answer{
+    position: relative;
+    left: 20px;
+}
 .sidebar {
     border: 4px dashed #a1a1a1;
     border-radius: 15px;
-    background-color: lightblue;
+    background: url(sidebar_bg.jpg);;
 	font-size: 20px;
-	padding: 10px 10px 10px 10px; 
+	padding: 10px 10px 10px 10px;
     width: 220px;
     text-align: left;
     position: absolute;
     margin-left: 10px;
-	top: 1; 
+	top: 1;
     left: 0;
-    -webkit-box-shadow: 10px 10px 10px #000;
-	-moz-box-shadow: 10px 10px 10px #000;
-	box-shadow: 10px 10px 10px #000;
 }
 .wrapper {
     border: 4px dashed #a1a1a1;
     border-radius: 15px;
-    background-color: lightgreen;
-    padding: 10px; 
-	margin: 0 300px 0 250px;  
+    background-color: aquamarine;
+    padding: 10px;
+	margin: 0 300px 0 250px;
     position: absolute;
-    -webkit-box-shadow: 10px 10px 10px #000;
-	-moz-box-shadow: 10px 10px 10px #000;
-	box-shadow: 10px 10px 10px #000;
 }
 .commenter {
     border: 4px dashed #a1a1a1;
     border-radius: 15px;
     background-color: lightcoral;
-    padding: 10px; 
-	margin: 0 0 0 500px;  
+    padding: 10px;
+	margin: 0 0 0 500px;
     position: absolute;
-	padding: 10px; 
+	padding: 10px;
     width: 220px;
     text-align: left;
-    position: absolute;
     margin-right: 10px;
-	top: 1; 
+	top: 1;
     left: 0;
 }
-.comments p {
-    border: 2px palegreen;
+.comments p ,.user {
     border-radius: 15px;
-    padding: 2px;
+    padding: 3px;
     color: wheat;
-    background-color: darkgreen;
+    background-color: blue;
     display: inline;
     font-size: 12px;
 }
-/* 
+
+/*
 
 
 a {
