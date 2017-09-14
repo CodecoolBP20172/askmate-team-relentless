@@ -35,17 +35,21 @@ th, td {
     padding: 5px;
     text-align: left;
 }
+.answer{
+    position: relative;
+    left: 20px;
+}
 .sidebar {
     border: 4px dashed #a1a1a1;
     border-radius: 15px;
     background: url(sidebar_bg.jpg);;
 	font-size: 20px;
-	padding: 10px 10px 10px 10px; 
+	padding: 10px 10px 10px 10px;
     width: 220px;
     text-align: left;
     position: absolute;
     margin-left: 10px;
-	top: 1; 
+	top: 1;
     left: 0;
 }
 .wrapper {
@@ -60,14 +64,14 @@ th, td {
     border: 4px dashed #a1a1a1;
     border-radius: 15px;
     background-color: lightcoral;
-    padding: 10px; 
-	margin: 0 0 0 500px;  
+    padding: 10px;
+	margin: 0 0 0 500px;
     position: absolute;
-	padding: 10px; 
+	padding: 10px;
     width: 220px;
     text-align: left;
     margin-right: 10px;
-	top: 1; 
+	top: 1;
     left: 0;
 }
 .comments p,.user {
@@ -79,7 +83,7 @@ th, td {
     display: inline;
     font-size: 12px;
 }
-/* 
+/*
 
 
 a {
